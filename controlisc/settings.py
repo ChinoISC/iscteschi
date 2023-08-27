@@ -83,29 +83,19 @@ DATABASES = {
     }
 }
 """
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('P_DB_NAME'),
-        'USER': os.getenv('P_USERNAME'),
-        'PASSWORD': os.getenv('P_PASSWORD'),
-        'HOST': os.getenv('P_HOSTNAME'),
-        'PORT': os.getenv('P_PORT'),
+        'ENGINE': 'django.db.backends.postgresql',  # Motor de base de datos
+        'NAME': 'iscteschi',                  # Nombre de la base de datos
+        'USER': 'oscar2023',                         # Usuario de la base de datos
+        'PASSWORD': 'x2v7yJx0FSjgWh3RLwwqrJa7GlNkkHZu',                  # Contraseña del usuario
+        'HOST': 'oregon-postgres.render.com',                       # Host donde se encuentra la base de datos (puede ser una dirección IP o un nombre de host)
+        'PORT': '5432',                            # Puerto de la base de datos
     }
-}
+}    
 
-"""
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',  # Motor de base de datos
-            'NAME': 'iscteschi',                  # Nombre de la base de datos
-            'USER': 'oscar2023',                         # Usuario de la base de datos
-            'PASSWORD': 'x2v7yJx0FSjgWh3RLwwqrJa7GlNkkHZu',                  # Contraseña del usuario
-            'HOST': 'oregon-postgres.render.com',                       # Host donde se encuentra la base de datos (puede ser una dirección IP o un nombre de host)
-            'PORT': '5432',                            # Puerto de la base de datos
-        }
-    }    
-"""
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
