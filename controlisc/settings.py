@@ -83,18 +83,17 @@ DATABASES = {
     }
 }
 """
-if 'P_HOSTNAME' in os.environ:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',  # Motor de base de datos
-            'NAME': os.environ['P_DB_NAME'],                  # Nombre de la base de datos
-            'USER': os.environ['P_USERNAME'],                         # Usuario de la base de datos
-            'PASSWORD': os.environ['P_PASSWORD'],                  # Contraseña del usuario
-            'HOST': os.environ['P_HOSTNAME'],                       # Host donde se encuentra la base de datos (puede ser una dirección IP o un nombre de host)
-            'PORT': os.environ['P_PORT'],                            # Puerto de la base de datos
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',  # Motor de base de datos
+        'NAME': os.environ['P_DB_NAME'],                  # Nombre de la base de datos
+        'USER': os.environ['P_USERNAME'],                         # Usuario de la base de datos
+        'PASSWORD': os.environ['P_PASSWORD'],                  # Contraseña del usuario
+        'HOST': os.environ['P_HOSTNAME'],                       # Host donde se encuentra la base de datos (puede ser una dirección IP o un nombre de host)
+        'PORT': os.environ['P_PORT'],                            # Puerto de la base de datos
     }
-else:
+}
+"""
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',  # Motor de base de datos
@@ -105,7 +104,7 @@ else:
             'PORT': '5432',                            # Puerto de la base de datos
         }
     }    
-
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
