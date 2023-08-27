@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -86,14 +87,9 @@ DATABASES = {
 
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',  # Motor de base de datos
-        'NAME': 'iscteschi',                  # Nombre de la base de datos
-        'USER': 'oscar2023',                         # Usuario de la base de datos
-        'PASSWORD': 'x2v7yJx0FSjgWh3RLwwqrJa7GlNkkHZu',                  # Contraseña del usuario
-        'HOST': 'oregon-postgres.render.com',                       # Host donde se encuentra la base de datos (puede ser una dirección IP o un nombre de host)
-        'PORT': '5432',                            # Puerto de la base de datos
-    }
+    'default':dj_database_url.parse(os.environ("DATABASE_URL")) 
+                                   # Puerto de la base de datos
+    
 }    
 
 
