@@ -1,3 +1,4 @@
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,8 +11,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="../static/img/favicon.png" rel="icon">
-  <link href="../static/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{% static 'img/favicon.png' %}" rel="icon">
+  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -20,25 +21,18 @@
     rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="../static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="../static/vendor/quill/quill.snow.css" rel="stylesheet">
-  <link href="../static/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <link href="../static/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="../static/vendor/simple-datatables/style.css" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/quill/quill.snow.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/quill/quill.bubble.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/simple-datatables/style.css' %}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="../static/css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: ISCTESCHI
-  * Updated: Jul 27 2023 with Bootstrap v5.3.1
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
 </head>
+
 
 <body>
 
@@ -47,7 +41,7 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="../index.html" class="logo d-flex align-items-center">
-        <img src="../static/img/logo.png" alt="">
+        <img src="{% static 'img/logo.png' %}" alt="">
         <span class="d-none d-lg-block">ISCTESCHI</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -74,7 +68,7 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="../static/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <img src="{% static 'img/profile-img.jpg' %}" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
           </a><!-- End Profile Iamge Icon -->
 
@@ -281,7 +275,7 @@
                   <button type="reset" class="btn btn-secondary">Reset</button>
                 </div>
               </form><!-- End Horizontal Form -->
-              <script src="../static/js/SendUser.js"></script>
+              <script src="{% static 'js/SendUser.js' %}"></script>
             </div>
           </div>
 
@@ -311,19 +305,19 @@
       class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="../static/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../static/vendor/chart.js/chart.umd.js"></script>
-  <script src="../static/vendor/echarts/echarts.min.js"></script>
-  <script src="../static/vendor/quill/quill.min.js"></script>
-  <script src="../static/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="../static/vendor/tinymce/tinymce.min.js"></script>
-  <script src="../static/vendor/php-email-form/validate.js"></script>
+<script src="{% static 'vendor/apexcharts/apexcharts.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/chart.js/chart.umd.js' %}"></script>
+<script src="{% static 'vendor/echarts/echarts.min.js' %}"></script>
+<script src="{% static 'vendor/quill/quill.min.js' %}"></script>
+<script src="{% static 'vendor/simple-datatables/simple-datatables.js' %}"></script>
+<script src="{% static 'vendor/tinymce/tinymce.min.js' %}"></script>
+<script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+
+<!-- Template Main JS File -->
+<script src="{% static 'js/main.js' %}"></script>
 
 
-  <!-- Template Main JS File -->
-  <script src="../static/js/main.js"></script>
-  <script src="../static/js/Validate_Sesion_templates.js"></script>
 
 </body>
 
