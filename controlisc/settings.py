@@ -87,7 +87,7 @@ DATABASES = {
 
 
 DATABASES = {
-    'default':dj_database_url.parse(os.environ("DATABASE_URL")) 
+    'default':dj_database_url.parse(os.environ['DATABASE_URL']) 
                                    # Puerto de la base de datos
     
 }    
