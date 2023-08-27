@@ -112,7 +112,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="{% url 'logout'%}">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
@@ -265,7 +265,13 @@
                 <div class="row mb-3">
                   <label for="Pass" class="col-sm-2 col-form-label">Password</label>
                   <div class="col-sm-10">
-                    <input type="password" class="form-control" id="inputPassword" autocomplete="current-password" placeholder="Input your password" required>
+                    <input type="text" class="form-control" id="inputPassword1" autocomplete="current-password" placeholder="Input your password" required>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="Pass" class="col-sm-2 col-form-label">Confirm Password</label>
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword2" autocomplete="current-password" placeholder="Input your password" required>
                   </div>
                 </div>
 
@@ -316,7 +322,7 @@
 
 <!-- Template Main JS File -->
 <script src="{% static 'js/main.js' %}"></script>
-
+<script src="{% static 'js/Logout.js' %}"></script>
 
 
 </body>
