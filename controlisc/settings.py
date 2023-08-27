@@ -82,16 +82,28 @@ DATABASES = {
     }
 }
 """
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',  # Motor de base de datos
-        'NAME': os.environ['P_DB_NAME'],                  # Nombre de la base de datos
-        'USER': os.environ['P_USERNAME'],                         # Usuario de la base de datos
-        'PASSWORD': os.environ['P_PASSWORD'],                  # Contraseña del usuario
-        'HOST': os.environ['P_HOSTNAME'],                       # Host donde se encuentra la base de datos (puede ser una dirección IP o un nombre de host)
-        'PORT': os.environ['P_PORT'],                            # Puerto de la base de datos
+if 'P_HOSTNAME' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',  # Motor de base de datos
+            'NAME': os.environ['P_DB_NAME'],                  # Nombre de la base de datos
+            'USER': os.environ['P_USERNAME'],                         # Usuario de la base de datos
+            'PASSWORD': os.environ['P_PASSWORD'],                  # Contraseña del usuario
+            'HOST': os.environ['P_HOSTNAME'],                       # Host donde se encuentra la base de datos (puede ser una dirección IP o un nombre de host)
+            'PORT': os.environ['P_PORT'],                            # Puerto de la base de datos
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',  # Motor de base de datos
+            'NAME': 'iscteschi',                  # Nombre de la base de datos
+            'USER': 'oscar2023',                         # Usuario de la base de datos
+            'PASSWORD': 'x2v7yJx0FSjgWh3RLwwqrJa7GlNkkHZu',                  # Contraseña del usuario
+            'HOST': 'oregon-postgres.render.com',                       # Host donde se encuentra la base de datos (puede ser una dirección IP o un nombre de host)
+            'PORT': '5432',                            # Puerto de la base de datos
+        }
+    }    
 
 
 # Password validation
