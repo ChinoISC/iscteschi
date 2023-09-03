@@ -273,29 +273,14 @@
                   <div class="col-sm-6">
                     <select id="colorSelect" class="form-select" required>
                       
-                      {% if activity.color == 'text-danger'%}
-                        <option value="text-danger" selected>Red</option>
-                      {% elif activity.color == 'text-primary'%}
-                        <option value="text-primary" selected>Blue</option>
-                      {% elif activity.color == 'text-success'%}
-                        <option value="text-success" selected>Green</option>
-                      {% elif activity.color == 'text-warning'%}
-                        <option value="text-warning" selected>Yellow</option>
-                      {% elif activity.color == 'text-dark'%}
-                        <option value="text-dark" selected>Black</option>
-                      {% else %}
-                        <option value="text-danger" >Red</option>
-                        <option value="text-primary" >Blue</option>
-                        <option value="text-success" >Green</option>
-                        <option value="text-warning" >Yellow</option>
-                        <option value="text-dark" >Black</option>
-                      {% endif %}
-                      <option value="text-danger" >Red</option>
-                        <option value="text-primary" >Blue</option>
-                        <option value="text-success" >Green</option>
-                        <option value="text-warning" >Yellow</option>
-                        <option value="text-dark" >Black</option>
-                    </select>
+                      <select id="colorSelect">
+                        <option value="text-danger" {% if activity.color == 'text-danger' %} selected {% endif %}>Red</option>
+                        <option value="text-primary" {% if activity.color == 'text-primary' %} selected {% endif %}>Blue</option>
+                        <option value="text-success" {% if activity.color == 'text-success' %} selected {% endif %}>Green</option>
+                        <option value="text-warning" {% if activity.color == 'text-warning' %} selected {% endif %}>Yellow</option>
+                        <option value="text-dark" {% if activity.color == 'text-dark' %} selected {% endif %}>Black</option>
+                      </select>
+                      
                   </div>
                 </div>
                 
