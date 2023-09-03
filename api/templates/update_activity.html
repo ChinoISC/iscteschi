@@ -283,6 +283,12 @@
                         <option value="text-warning" selected>Yellow</option>
                       {% elif activity.color == 'text-dark'%}
                         <option value="text-dark" selected>Black</option>
+                      {% else %}
+                        <option value="text-danger" >Red</option>
+                        <option value="text-primary" >Blue</option>
+                        <option value="text-success" >Green</option>
+                        <option value="text-warning" >Yellow</option>
+                        <option value="text-dark" >Black</option>
                       {% endif %}
                     </select>
                   </div>
