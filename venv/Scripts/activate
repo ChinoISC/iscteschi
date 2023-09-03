@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\Her-Fer\Documents\Aplicación\venv"
+VIRTUAL_ENV="C:\Users\Her-Fer\Documents\Aplicación\controlisc\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

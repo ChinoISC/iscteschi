@@ -92,6 +92,18 @@ DATABASES = {
     
 }    
 
+# settings.py
+
+"""DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'iscteschi',
+        'USER': 'oscar2023',
+        'PASSWORD': 'x2v7yJx0FSjgWh3RLwwqrJa7GlNkkHZu',
+        'HOST': 'oregon-postgres.render.com',  # Puedes especificar la dirección IP o el nombre del host de tu servidor PostgreSQL
+        'PORT': '5432',       # Puerto por defecto de PostgreSQL
+    }
+}"""
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -126,7 +138,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
-
+#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
 BASE_DIR / "static",
