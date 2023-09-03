@@ -44,27 +44,80 @@ class CreateActivity(APIView):
         description = data.get('description')
         color = data.get('color')
         
-        # Obtiene el usuario actualmente autenticado
         user = request.user
-
-        # Crea una nueva instancia de Activities con los valores proporcionados
         activity = Activities(
             title=title,
             descriptions=description,
-            date_activities=date.today(),  # Obtiene la fecha actual
-            completed=0,  # Establece el campo completed en 0
+            date_activities=date.today(), 
+            completed=0,  
             color = color,
-            fk_user=user  # Asigna el usuario actual
+            fk_user=user  
         )
 
-        # Guarda la actividad en la base de datos
+
         activity.save()
-
-        # Puedes redirigir al usuario a donde desees después de guardar la actividad
-        # Por ejemplo, puedes redirigirlo a la página de detalles de la actividad
-        # return redirect('detalle_actividad', id=activity.id)
-
-        # O devolver una respuesta JSON si estás trabajando con una API
         return Response({'message': 'Actividad creada exitosamente'})
 
+
+class CompletedActivity(APIView):
+    def get(self,request):
+        activity_id = request.GET.get('id')
+        try:
+            # Busca la actividad en la base de datos por su ID
+            activity = Activities.objects.get(id=activity_id)
+            
+            # Cambia el estado 'completed' de la actividad
+            activity.completed = True  # Invierte el estado actual
+            
+            # Guarda los cambios en la base de datos
+            activity.save()
+
+            return Response({'message': "El estatus de la actividad cambió"})
+        except Activities.DoesNotExist:
+            return Response({'message': "La actividad no existe"}, status=404)
         
+class EditActivity(APIView):
+    template_name="update_activity.html"
+    def get(self,request):
+        activity_id = request.GET.get('id')
+        try:
+            # Busca la actividad en la base de datos por su ID
+            activity = Activities.objects.get(id=activity_id)
+            
+            context ={
+                'activity':activity
+            }
+
+            return render(request, self.template_name, context)
+        except Activities.DoesNotExist:
+
+            return Response({'message': "La actividad no se puede editar"}, status=404)
+    def post(self,request):
+        data = request.data
+        activity_id = data.get('id')
+        new_title = data.get('title')
+        new_description = data.get('description')
+        new_color = data.get('color')
+        try:
+            Activities.objects.filter(id=activity_id).update(
+            title=new_title,
+            descriptions=new_description,
+            color=new_color
+            )    
+            return Response({'message': "La actividad se actualizo"})
+        except Activities.DoesNotExist:
+            return Response({'message': "La actividad no existe"}, status=404)
+        
+class DeleteActivity(APIView):
+    def get(self, request):
+        activity_id = request.GET.get('id')
+        try:
+            # Busca la actividad en la base de datos por su ID
+            activity = Activities.objects.get(id=activity_id)
+            
+            # Elimina la actividad de la base de datos
+            activity.delete()
+
+            return Response({'message': "La actividad se eliminó correctamente"})
+        except Activities.DoesNotExist:
+            return Response({'message': "La actividad no existe"}, status=404)

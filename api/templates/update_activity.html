@@ -171,7 +171,6 @@
             </a>
           </li>
           {% endif %}
-
         </ul>
       </li><!-- End Forms Nav -->
 
@@ -253,30 +252,38 @@
               <h5 class="card-title">Activity Register</h5>
 
               <!-- Horizontal Form -->
+              
               <form>
                 {% csrf_token %}
+                <input type="hidden" id="inputId" value="{{activity.id}}">
                 <div class="row mb-3">
                   <label for="Title" class="col-sm-2 col-form-label">Title:</label>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control" id="inputTitle" placeholder="Input your Title" required>
+                    <input type="text" class="form-control" value="{{activity.title}}" id="inputTitle" placeholder="Input your Title" required>
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="Description" class="col-sm-2 col-form-label">Description:</label>
                   <div class="col-sm-6">
-                    <textarea type="text" class="form-control" id="inputDescription" placeholder="Input your Description" rows="6" cols="50" required></textarea>
+                    <textarea type="text" class="form-control"  id="inputDescription" placeholder="Input your Description" rows="6" cols="50" required>{{activity.descriptions}}</textarea>
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="Color" class="col-sm-2 col-form-label">Select a Color:</label>
                   <div class="col-sm-6">
                     <select id="colorSelect" class="form-select" required>
-                      <option value="" hidden>Select an Option</option>
-                      <option value="text-danger">Red</option>
-                      <option value="text-primary">Blue</option>
-                      <option value="text-success">Green</option>
-                      <option value="text-warning">Yellow</option>
-                      <option value="text-dark">Black</option>
+                      
+                      {% if activity.color == 'text-danger'%}
+                        <option value="text-danger" selected>Red</option>
+                      {% elif activity.color == 'text-primary'%}
+                        <option value="text-primary" selected>Blue</option>
+                      {% elif activity.color == 'text-success'%}
+                        <option value="text-success" selected>Green</option>
+                      {% elif activity.color == 'text-warning'%}
+                        <option value="text-warning" selected>Yellow</option>
+                      {% elif activity.color == 'text-dark'%}
+                        <option value="text-dark" selected>Black</option>
+                      {% endif %}
                     </select>
                   </div>
                 </div>
@@ -289,7 +296,7 @@
                   <button type="reset" class="btn btn-secondary">Reset</button>
                 </div>
               </form><!-- End Horizontal Form -->
-              <script src="{% static 'js/SendActivity.js' %}"></script>
+              <script src="{% static 'js/UpdateActivity.js' %}"></script>
             </div>
           </div>
 

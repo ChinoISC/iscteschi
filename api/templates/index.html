@@ -79,8 +79,8 @@
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>Kevin Anderson</h6>
-              <span>Web Designer</span>
+              <h6>{{username}}</h6>
+              <span>Teacher</span>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -160,22 +160,22 @@
       </li><!-- End Forms Nav -->
 
       
-      {% if is_super %}
+      
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          
+          {% if is_super %}
           <li>
             <a href="{%url 'create_user'%}">
               <i class="bi bi-circle"></i><span>User Register</span>
             </a>
           </li>
-          
+          {% endif %}
         </ul>
       </li><!-- End Forms Nav -->
-      {% endif %}
+      
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -469,7 +469,7 @@
 
               <div class="activity">
                 {% for activity in activities|slice:":12"  %}
-                    {% if activity.fk_user.id == id%}
+                    {% if activity.fk_user.id == id and not activity.completed %}
                     <div class="activity-item d-flex">
                       <div class="activite-label">{{activity.date_activities}}</div>
                       <i class='bi bi-circle-fill activity-badge {{activity.color}} align-self-start'></i>

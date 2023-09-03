@@ -74,8 +74,8 @@
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>Kevin Anderson</h6>
-              <span>Web Designer</span>
+              <h6>{{username}}</h6>
+              <span>Teacher</span>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -164,11 +164,13 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
           
+          {% if is_super %}
           <li>
-            <a href="{%url 'create_user'%}" class="active">
+            <a href="{%url 'create_user'%}">
               <i class="bi bi-circle"></i><span>User Register</span>
             </a>
           </li>
+          {% endif %}
 
         </ul>
       </li><!-- End Forms Nav -->

@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from api.Home.homeView import Home,Login,LogoutView
 from api.Users.user_view import CreateUserView
-from api.Activity.view_activity import ActivityView, CreateActivity
+from api.Activity.view_activity import ActivityView, CreateActivity,CompletedActivity,DeleteActivity,EditActivity
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
@@ -28,6 +28,9 @@ urlpatterns = [
     path('view_activity',ActivityView.as_view(),name='view_activity' ),
     path('create_user/',CreateUserView.as_view(),name='create_user' ),
     path('create_activity/',CreateActivity.as_view(),name='create_activity' ),
+    path('change_completed/',CompletedActivity.as_view(),name='change_completed' ),
+    path('change_edit/',EditActivity.as_view(),name='change_edit' ),
+    path('change_delete/',DeleteActivity.as_view(),name='change_delete' ),
     path('login/',Login.as_view(),name='login' ),
     path('logout/',LogoutView.as_view(),name='logout' ),
 ]
