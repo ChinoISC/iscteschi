@@ -1,21 +1,17 @@
 from rest_framework.views import APIView
 from django.shortcuts import render
-from django.urls import reverse
 from rest_framework.response import Response
-from rest_framework import status
-from django.contrib.auth.models import User
-from django.contrib.auth.hashers import make_password
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django.contrib.auth import authenticate, login
-from django.http import JsonResponse
-from django.contrib.auth import logout
-from django.shortcuts import redirect
 from api.models import Activities
 from datetime import date
+from django.contrib.auth.decorators import user_passes_test
 
 class ActivityView(APIView):
+    def is_superuser(user):
+        return user.is_superuser
     template_name="view_activities.html"
+    @method_decorator(user_passes_test(is_superuser), name='get')
     @method_decorator(login_required(login_url='login')) 
     def get(self,request):
         id = request.user.id
@@ -27,10 +23,15 @@ class ActivityView(APIView):
             'activities':activities
         }
         return render(request,self.template_name,context)
-    
+
+
+
 class CreateActivity(APIView):
+    def is_superuser(user):
+        return user.is_superuser
     template_name = "create_activity.html"
-    @method_decorator(login_required(login_url='login'))
+    @method_decorator(user_passes_test(is_superuser), name='get')
+    @method_decorator(login_required(login_url='login')) 
     def get(self, request):
         username = request.user.username
         
@@ -59,6 +60,7 @@ class CreateActivity(APIView):
         return Response({'message': 'Actividad creada exitosamente'})
 
 
+
 class CompletedActivity(APIView):
     def get(self,request):
         activity_id = request.GET.get('id')
@@ -75,9 +77,15 @@ class CompletedActivity(APIView):
             return Response({'message': "El estatus de la actividad cambió"})
         except Activities.DoesNotExist:
             return Response({'message': "La actividad no existe"}, status=404)
-        
+
+
+
 class EditActivity(APIView):
+    def is_superuser(user):
+        return user.is_superuser
     template_name="update_activity.html"
+    @method_decorator(user_passes_test(is_superuser), name='get')
+    @method_decorator(login_required(login_url='login')) 
     def get(self,request):
         activity_id = request.GET.get('id')
         try:
@@ -107,7 +115,9 @@ class EditActivity(APIView):
             return Response({'message': "La actividad se actualizo"})
         except Activities.DoesNotExist:
             return Response({'message': "La actividad no existe"}, status=404)
-        
+
+
+
 class DeleteActivity(APIView):
     def get(self, request):
         activity_id = request.GET.get('id')

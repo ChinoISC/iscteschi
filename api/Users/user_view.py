@@ -1,6 +1,5 @@
 from rest_framework.views import APIView
 from django.shortcuts import render
-from django.urls import reverse
 from rest_framework.response import Response
 from rest_framework import status
 from django.contrib.auth.decorators import user_passes_test
