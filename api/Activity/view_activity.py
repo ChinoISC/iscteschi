@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from api.models import Activities
 from datetime import date
-from django.contrib.auth.decorators import user_passes_test
+
 
 class ActivityView(APIView):
     template_name="view_activities.html"
@@ -13,7 +13,7 @@ class ActivityView(APIView):
     def get(self,request):
         id = request.user.id
         username = request.user.username
-        is_super = request.user.is_super
+        is_super = request.user.is_superuser
         activities = Activities.objects.all()
         context = {
             'id':id,
@@ -28,10 +28,11 @@ class ActivityView(APIView):
 class CreateActivity(APIView):
 
     template_name = "create_activity.html"
+
     @method_decorator(login_required(login_url='login')) 
     def get(self, request):
         username = request.user.username
-        is_super = request.user.is_super
+        is_super = request.user.is_superuser
         
         context = {
             'username': username,
@@ -84,7 +85,7 @@ class EditActivity(APIView):
     template_name="update_activity.html"
     @method_decorator(login_required(login_url='login')) 
     def get(self,request):
-        is_super = request.user.is_super
+        is_super = request.user.is_superuser
         activity_id = request.GET.get('id')
         try:
             # Busca la actividad en la base de datos por su ID

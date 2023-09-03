@@ -93,8 +93,8 @@ DATABASES = {
 }    
 
 # settings.py
-
-"""DATABASES = {
+"""
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'iscteschi',

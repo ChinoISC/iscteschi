@@ -47,7 +47,7 @@ class CreateUserView(APIView):
     @method_decorator(login_required(login_url='login')) 
     def get(self,request):
         username = request.user.username
-        is_super = request.user.is_super
+        is_super = request.user.is_superuser
         context = {
             'username': username,
             'is_super': is_super
