@@ -19,6 +19,7 @@ from django.urls import path
 from api.Home.homeView import Home,Login,LogoutView
 from api.Users.user_view import CreateUserView
 from api.Activity.view_activity import ActivityView, CreateActivity,CompletedActivity,DeleteActivity,EditActivity
+from api.Tables.view_tables import ViewTable
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
@@ -31,6 +32,7 @@ urlpatterns = [
     path('change_completed/',CompletedActivity.as_view(),name='change_completed' ),
     path('change_edit/',EditActivity.as_view(),name='change_edit' ),
     path('change_delete/',DeleteActivity.as_view(),name='change_delete' ),
+    path('view_tables_activity/',ViewTable.as_view(),name='view_tables_activity' ),
     path('login/',Login.as_view(),name='login' ),
     path('logout/',LogoutView.as_view(),name='logout' ),
 ]
