@@ -8,35 +8,34 @@ from datetime import date
 from django.contrib.auth.decorators import user_passes_test
 
 class ActivityView(APIView):
-    def is_superuser(user):
-        return user.is_superuser
     template_name="view_activities.html"
-    @method_decorator(user_passes_test(is_superuser), name='get')
     @method_decorator(login_required(login_url='login')) 
     def get(self,request):
         id = request.user.id
         username = request.user.username
+        is_super = request.user.is_super
         activities = Activities.objects.all()
         context = {
             'id':id,
             'username': username,
-            'activities':activities
+            'is_super': is_super,
+            'activities': activities
         }
         return render(request,self.template_name,context)
 
 
 
 class CreateActivity(APIView):
-    def is_superuser(user):
-        return user.is_superuser
+
     template_name = "create_activity.html"
-    @method_decorator(user_passes_test(is_superuser), name='get')
     @method_decorator(login_required(login_url='login')) 
     def get(self, request):
         username = request.user.username
+        is_super = request.user.is_super
         
         context = {
             'username': username,
+            'is_super': is_super
         }
         return render(request, self.template_name, context)
     def post(self, request):
@@ -81,18 +80,18 @@ class CompletedActivity(APIView):
 
 
 class EditActivity(APIView):
-    def is_superuser(user):
-        return user.is_superuser
+
     template_name="update_activity.html"
-    @method_decorator(user_passes_test(is_superuser), name='get')
     @method_decorator(login_required(login_url='login')) 
     def get(self,request):
+        is_super = request.user.is_super
         activity_id = request.GET.get('id')
         try:
             # Busca la actividad en la base de datos por su ID
             activity = Activities.objects.get(id=activity_id)
             
             context ={
+                'is_super':is_super,
                 'activity':activity
             }
 
