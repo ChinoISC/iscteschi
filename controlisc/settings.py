@@ -90,20 +90,24 @@ DATABASES = {
     'default':dj_database_url.parse(os.environ['DATABASE_URL']) 
                                    # Puerto de la base de datos
     
-}    
+} 
+  
 
 # settings.py
-
-"""DATABASES = {
+# settings.py
+"""
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'iscteschi',
+        'NAME': 'iscteschi_361l',
         'USER': 'oscar2023',
-        'PASSWORD': 'x2v7yJx0FSjgWh3RLwwqrJa7GlNkkHZu',
-        'HOST': 'oregon-postgres.render.com',  # Puedes especificar la dirección IP o el nombre del host de tu servidor PostgreSQL
-        'PORT': '5432',       # Puerto por defecto de PostgreSQL
+        'PASSWORD': 'mgs0fN5MTc9nt4Xan7Ltuoe4DJwfwCCF',
+        'HOST': 'oregon-postgres.render.com',  # Cambia esto a la dirección de tu servidor PostgreSQL
+        'PORT': '5432',       # Puerto de PostgreSQL
     }
-}"""
+}
+"""
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
