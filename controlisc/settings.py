@@ -92,9 +92,9 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'iscteschi_i2sf',
+        'NAME': 'iscteschi_361l',
         'USER': 'oscar2023',
-        'PASSWORD': '0xLT68aCKO4JJ5FQcdsCzm5PLOQXAzgx',
+        'PASSWORD': 'mgs0fN5MTc9nt4Xan7Ltuoe4DJwfwCCF',
         'HOST': 'oregon-postgres.render.com',  # Cambia esto a la dirección de tu servidor PostgreSQL
         'PORT': '5432',       # Puerto de PostgreSQL oregon-postgres.render.com
     }
