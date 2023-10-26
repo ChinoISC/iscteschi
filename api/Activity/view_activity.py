@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from api.models import Activities
-from datetime import date
+
 
 
 class ActivityView(APIView):
@@ -44,12 +44,13 @@ class CreateActivity(APIView):
         title = data.get('title')
         description = data.get('description')
         color = data.get('color')
+        dates = data.get('dates')
         
         user = request.user
         activity = Activities(
             title=title,
             descriptions=description,
-            date_activities=date.today(), 
+            date_activities=dates, 
             completed=0,  
             color = color,
             fk_user=user  

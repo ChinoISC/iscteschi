@@ -85,8 +85,6 @@ DATABASES = {
     
 } 
 
-
-# settings.py
 # settings.py
 """
 DATABASES = {
@@ -96,6 +94,18 @@ DATABASES = {
         'USER': 'oscar2023',
         'PASSWORD': 'mgs0fN5MTc9nt4Xan7Ltuoe4DJwfwCCF',
         'HOST': 'oregon-postgres.render.com',  # Cambia esto a la dirección de tu servidor PostgreSQL
+        'PORT': '5432',       # Puerto de PostgreSQL oregon-postgres.render.com
+    }
+}
+"""
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'pruebalocal',
+        'USER': 'postgres',
+        'PASSWORD': 'oscar1234',
+        'HOST': 'localhost',  # Cambia esto a la dirección de tu servidor PostgreSQL
         'PORT': '5432',       # Puerto de PostgreSQL oregon-postgres.render.com
     }
 }

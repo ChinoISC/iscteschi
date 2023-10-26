@@ -16,7 +16,7 @@ class Home(APIView):
         id = request.user.id
         username = request.user.username
         is_super = request.user.is_superuser
-        activities = Activities.objects.all().order_by('-date_activities')
+        activities = Activities.objects.all().order_by('-date_activities')[:3]
 
         context = {
             'id': id,

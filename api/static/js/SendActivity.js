@@ -9,11 +9,14 @@ $(document).ready(function() {
     const title = $('#inputTitle').val();
     const description = $('#inputDescription').val();
     const color = $('#colorSelect').val();
+    const dates = $('#fecha').val();
+    
 
     const activityData = {
       title: title,
       description: description,
       color: color,
+      dates: dates,
     };
 
     const form = this;
