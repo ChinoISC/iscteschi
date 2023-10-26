@@ -76,37 +76,30 @@ WSGI_APPLICATION = 'controlisc.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-"""
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-"""
 
 
+"""
 DATABASES = {
     'default':dj_database_url.parse(os.environ['DATABASE_URL']) 
                                    # Puerto de la base de datos
     
 } 
-  
+"""
 
 # settings.py
 # settings.py
-"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'iscteschi_361l',
+        'NAME': 'iscteschi_i2sf',
         'USER': 'oscar2023',
-        'PASSWORD': 'mgs0fN5MTc9nt4Xan7Ltuoe4DJwfwCCF',
+        'PASSWORD': '0xLT68aCKO4JJ5FQcdsCzm5PLOQXAzgx',
         'HOST': 'oregon-postgres.render.com',  # Cambia esto a la dirección de tu servidor PostgreSQL
-        'PORT': '5432',       # Puerto de PostgreSQL
+        'PORT': '5432',       # Puerto de PostgreSQL oregon-postgres.render.com
     }
 }
-"""
+
 
 
 # Password validation
