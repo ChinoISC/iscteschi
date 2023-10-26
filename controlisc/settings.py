@@ -78,17 +78,17 @@ WSGI_APPLICATION = 'controlisc.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
-"""
+
 DATABASES = {
     'default':dj_database_url.parse(os.environ['DATABASE_URL']) 
                                    # Puerto de la base de datos
     
 } 
+
+
+# settings.py
+# settings.py
 """
-
-# settings.py
-# settings.py
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -99,7 +99,7 @@ DATABASES = {
         'PORT': '5432',       # Puerto de PostgreSQL oregon-postgres.render.com
     }
 }
-
+"""
 
 
 # Password validation
