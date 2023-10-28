@@ -72,19 +72,19 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'controlisc.wsgi.application'
-
+#gunicorn controlisc.wsgi:application
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
-
+"""
 DATABASES = {
     'default':dj_database_url.parse(os.environ['DATABASE_URL']) 
                                    # Puerto de la base de datos
     
 } 
-
+"""
 # settings.py
 """
 DATABASES = {
@@ -98,18 +98,18 @@ DATABASES = {
     }
 }
 """
-"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'pruebalocal',
-        'USER': 'postgres',
-        'PASSWORD': 'oscar1234',
-        'HOST': 'localhost',  # Cambia esto a la dirección de tu servidor PostgreSQL
+        'NAME': 'iscteschi_361l',
+        'USER': 'oscar2023',
+        'PASSWORD': 'mgs0fN5MTc9nt4Xan7Ltuoe4DJwfwCCF',
+        'HOST': 'oregon-postgres.render.com',  # Cambia esto a la dirección de tu servidor PostgreSQL
         'PORT': '5432',       # Puerto de PostgreSQL oregon-postgres.render.com
     }
 }
-"""
+
 
 
 # Password validation
